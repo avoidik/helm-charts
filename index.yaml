@@ -3,12 +3,13 @@ entries:
   epinio-dynamodb:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-02-04T18:43:44.0527125+02:00"
+    created: "2023-02-04T23:02:27.6619116+02:00"
     description: Create DynamoDB table using Crossplane
-    digest: bc247987ec3626af2019dac68d7406ada1b1b2a63623171dfa05e89f0df6f0f2
+    digest: 95dfadda80db39805f4230942cdc6e408a1df1115155cb64d603a5a71519a998
+    icon: https://avoidik.github.io/helm-charts/assets/epinio-dynamodb.png
     name: epinio-dynamodb
     type: application
     urls:
     - https://avoidik.github.io/helm-charts/install/epinio-dynamodb-0.1.0.tgz
     version: 0.1.0
-generated: "2023-02-04T18:43:44.0521971+02:00"
+generated: "2023-02-04T23:02:27.6584747+02:00"
