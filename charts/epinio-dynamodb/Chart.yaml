@@ -4,3 +4,4 @@ description: Create DynamoDB table using Crossplane
 type: application
 version: 0.1.0
 appVersion: "0.0.1"
+icon: https://avoidik.github.io/helm-charts/assets/epinio-dynamodb.png
