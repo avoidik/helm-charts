@@ -2,7 +2,7 @@ providerConfigName: aws
 providerRegionName: eu-west-1
 
 resourceTags:
-- name: env
+- key: env
   value: test
 
 provisionedThroughput:
