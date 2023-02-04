@@ -1,0 +1,10 @@
+providerConfigName: aws
+providerRegionName: eu-west-1
+
+resourceTags:
+- name: env
+  value: test
+
+provisionedThroughput:
+  readCapacityUnits: 5
+  writeCapacityUnits: 5

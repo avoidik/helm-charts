@@ -1,0 +1,35 @@
+apiVersion: dynamodb.aws.crossplane.io/v1alpha1
+kind: Table
+metadata:
+  name: {{ include "epinio-dynamodb.fullname" . }}
+  labels:
+    {{- include "epinio-dynamodb.labels" . | nindent 4 }}
+spec:
+  publishConnectionDetailsTo:
+    name: {{ include "epinio-dynamodb.fullname" . }}-conn
+    metadata:
+      labels:
+        {{- include "epinio-dynamodb.labels" . | nindent 8 }}
+      annotations:
+        kubed.appscode.com/sync: "kubernetes.io/metadata.name={{ include "epinio-dynamodb.fullname" . }}"
+  providerConfigRef:
+    name: {{ .Values.providerConfigName }}
+  forProvider:
+    region: {{ .Values.providerRegionName }}
+    {{- if .Values.resourceTags }}
+    tags:
+      {{- toYaml .Values.resourceTags | nindent 6 }}
+    {{- end }}
+    attributeDefinitions:
+    - attributeName: Name
+      attributeType: S
+    - attributeName: Surname
+      attributeType: S
+    keySchema:
+    - attributeName: Name
+      keyType: HASH
+    - attributeName: Surname
+      keyType: RANGE
+    provisionedThroughput:
+      readCapacityUnits: {{ default 5 .Values.provisionedThroughput.readCapacityUnits }}
+      writeCapacityUnits: {{ default 5 .Values.provisionedThroughput.writeCapacityUnits }}
